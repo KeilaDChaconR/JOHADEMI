@@ -20,14 +20,16 @@
     --jm-margen: clamp(20px, 6vw, 110px);
   }
 
-  body {
+  html { background-color: var(--jm-lila); }
+  /* body.gradient: el body de Dawn lleva la clase .gradient, así que necesita más especificidad que la regla de abajo */
+  body, body.gradient {
     background: var(--jm-fondo) fixed !important;
     background-color: var(--jm-lila) !important;
     font-family: var(--jm-font);
     color: #fff;
   }
   /* Dawn pinta un fondo por sección: lo quitamos para que se vea un solo degradado */
-  .gradient { background: transparent !important; }
+  .gradient:not(body) { background: transparent !important; }
   h1, h2, h3, h4, .h0, .h1, .h2, .h3 { font-family: var(--jm-font) !important; }
 
   .jm-wrap {
