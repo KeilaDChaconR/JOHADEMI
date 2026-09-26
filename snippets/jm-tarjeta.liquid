@@ -1,0 +1,42 @@
+{%- comment -%}
+  jm-tarjeta.liquid — tarjeta de producto como en la tienda publicada.
+  {% render 'jm-tarjeta', product: product, boton: 'Añadir al carrito', oferta: true %}
+{%- endcomment -%}
+{%- liquid
+  assign v = product.selected_or_first_available_variant
+  assign alt = product.featured_media.alt | default: product.title
+  assign rebajado = false
+  if product.compare_at_price > product.price
+    assign rebajado = true
+  endif
+-%}
+<article class="jm-tarjeta">
+  <a href="{{ product.url }}" class="jm-tarjeta__media" tabindex="-1" aria-hidden="true">
+    {%- if product.featured_media -%}
+      {{ product.featured_media | image_url: width: 800 | image_tag: loading: 'lazy', widths: '300, 450, 600, 800', sizes: '(min-width: 990px) 25vw, 50vw', class: 'jm-tarjeta__img', alt: alt }}
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag: 'jm-tarjeta__img' }}
+    {%- endif -%}
+    {%- if oferta and rebajado -%}
+      <span class="jm-tarjeta__oferta">¡Oferta!</span>
+    {%- endif -%}
+  </a>
+
+  <a href="{{ product.url }}" class="jm-tarjeta__titulo">{{ product.title | escape }}</a>
+
+  <p class="jm-tarjeta__precio">
+    {%- if rebajado -%}<s>{{ product.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
+    <span>{% if product.price_varies %}Desde {% endif %}{{ product.price | money_without_trailing_zeros }}</span>
+  </p>
+
+  {%- if product.available == false -%}
+    <span class="jm-btn jm-btn--sm jm-btn--agotado">Agotado</span>
+  {%- elsif product.has_only_default_variant -%}
+    {%- form 'product', product, class: 'jm-tarjeta__form' -%}
+      <input type="hidden" name="id" value="{{ v.id }}">
+      <button type="submit" class="jm-btn jm-btn--sm">{{ boton | default: 'Añadir al carrito' | escape }}</button>
+    {%- endform -%}
+  {%- else -%}
+    <a href="{{ product.url }}" class="jm-btn jm-btn--sm">Elegir opción</a>
+  {%- endif -%}
+</article>

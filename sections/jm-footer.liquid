@@ -1,0 +1,98 @@
+{%- assign wa = section.settings.whatsapp_number | remove: '+' | remove: ' ' | remove: '-' -%}
+<footer class="jm-footer">
+  <div class="jm-wrap jm-footer__grid">
+    <a class="jm-footer__logo" href="{{ routes.root_url }}">
+      {%- if section.settings.logo != blank -%}
+        {{ section.settings.logo | image_url: width: 700 | image_tag: alt: shop.name, widths: '350, 700', sizes: '340px' }}
+      {%- else -%}
+        <span class="jm-logo__txt">{{ shop.name | upcase }}</span>
+        <span class="jm-logo__url">JOHADEMI.COM</span>
+      {%- endif -%}
+    </a>
+
+    <div class="jm-footer__col">
+      <h2 class="jm-footer__titulo">{{ section.settings.contact_heading | escape }}</h2>
+      <div class="jm-footer__links">
+        {%- if section.settings.email != blank -%}
+          <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+        {%- endif -%}
+        {%- if wa != blank -%}
+          <a href="https://wa.me/{{ wa }}" target="_blank" rel="noopener">{{ section.settings.whatsapp_label | escape }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="jm-footer__col">
+      <h2 class="jm-footer__titulo">{{ section.settings.social_heading | escape }}</h2>
+      <div class="jm-footer__redes">
+        {%- if wa != blank -%}
+          <a href="https://wa.me/{{ wa }}" target="_blank" rel="noopener" aria-label="WhatsApp">{% render 'jm-icono', icono: 'whatsapp' %}</a>
+        {%- endif -%}
+        {%- if section.settings.instagram != blank -%}
+          <a href="{{ section.settings.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">{% render 'jm-icono', icono: 'instagram' %}</a>
+        {%- endif -%}
+        {%- if section.settings.tiktok != blank -%}
+          <a href="{{ section.settings.tiktok }}" target="_blank" rel="noopener" aria-label="TikTok">{% render 'jm-icono', icono: 'tiktok' %}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+  <div class="jm-footer__barra"></div>
+</footer>
+
+{% stylesheet %}
+  .jm-footer { background: #fff; color: var(--jm-lila-texto); }
+  .jm-footer__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px;
+    align-items: center;
+    padding-top: clamp(40px, 4vw, 56px);
+    padding-bottom: clamp(40px, 4vw, 56px);
+  }
+  .jm-footer__logo { display: grid; color: var(--jm-lila-texto); text-decoration: none; justify-self: start; }
+  .jm-footer__logo img { display: block; width: min(340px, 100%); height: auto; }
+
+  .jm-footer__col { display: grid; gap: 22px; align-content: start; }
+  .jm-footer__titulo {
+    margin: 0;
+    color: var(--jm-lila-texto);
+    font-weight: 800;
+    font-size: clamp(28px, 2.4vw, 38px);
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+  .jm-footer__links { display: grid; gap: 2px; }
+  .jm-footer__links a { color: var(--jm-lila-texto); font-size: clamp(19px, 1.5vw, 24px); text-decoration: none; }
+  .jm-footer__links a:hover { color: var(--jm-lila-oscuro); text-decoration: underline; }
+
+  .jm-footer__redes { display: flex; gap: 12px; }
+  .jm-footer__redes a { display: grid; place-items: center; width: 48px; height: 48px; color: var(--jm-lila-texto); }
+  .jm-footer__redes a:hover { color: var(--jm-lila-oscuro); }
+  .jm-footer__redes .jm-icono { width: 30px; height: 30px; }
+
+  .jm-footer__barra { height: 16px; background: var(--jm-lima); }
+
+  @media (max-width: 749px) {
+    .jm-footer__grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .jm-footer__logo img { width: min(260px, 80%); }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "JM · Pie de página",
+  "tag": "section",
+  "enabled_on": { "groups": ["footer"] },
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo (versión lila)" },
+    { "type": "text", "id": "contact_heading", "label": "Título contacto", "default": "Escríbeme" },
+    { "type": "text", "id": "email", "label": "Correo", "default": "hola@johademi.com" },
+    { "type": "text", "id": "whatsapp_number", "label": "Número de WhatsApp", "info": "Con indicativo, sin espacios. Ej: 573001234567" },
+    { "type": "text", "id": "whatsapp_label", "label": "Texto del enlace de WhatsApp", "default": "Whatsappeame" },
+    { "type": "text", "id": "social_heading", "label": "Título redes", "default": "Sígueme" },
+    { "type": "url", "id": "instagram", "label": "Instagram" },
+    { "type": "url", "id": "tiktok", "label": "TikTok" }
+  ]
+}
+{% endschema %}

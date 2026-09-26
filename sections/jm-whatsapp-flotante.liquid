@@ -1,0 +1,35 @@
+{%- assign wa = section.settings.whatsapp_number | remove: '+' | remove: ' ' | remove: '-' -%}
+{%- if wa != blank -%}
+  <a class="jm-wa" href="https://wa.me/{{ wa }}{% if section.settings.message != blank %}?text={{ section.settings.message | url_encode }}{% endif %}" target="_blank" rel="noopener" aria-label="Escríbeme por WhatsApp">
+    {% render 'jm-icono', icono: 'whatsapp', grosor: 1.8 %}
+  </a>
+{%- endif -%}
+
+{% stylesheet %}
+  .jm-wa {
+    position: fixed;
+    right: clamp(14px, 3vw, 48px);
+    bottom: clamp(14px, 3vw, 40px);
+    z-index: 30;
+    display: grid;
+    place-items: center;
+    width: clamp(56px, 5vw, 72px);
+    height: clamp(56px, 5vw, 72px);
+    color: var(--jm-lima);
+    transition: transform .2s;
+  }
+  .jm-wa:hover { transform: translateY(-3px); }
+  .jm-wa .jm-icono { width: 100%; height: 100%; }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "JM · WhatsApp flotante",
+  "tag": "div",
+  "enabled_on": { "groups": ["footer"] },
+  "settings": [
+    { "type": "text", "id": "whatsapp_number", "label": "Número de WhatsApp", "info": "Con indicativo, sin espacios. Ej: 573001234567" },
+    { "type": "text", "id": "message", "label": "Mensaje inicial (opcional)", "default": "Hola Johanna, quiero agendar una sesión" }
+  ]
+}
+{% endschema %}

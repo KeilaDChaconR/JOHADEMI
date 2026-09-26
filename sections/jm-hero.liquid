@@ -1,0 +1,121 @@
+<section class="jm-hero">
+  <div class="jm-hero__grid jm-wrap">
+    <div class="jm-hero__texto">
+      <h1 class="jm-titular jm-hero__titulo">{{ section.settings.heading | escape | newline_to_br }}</h1>
+      {%- if section.settings.text != blank -%}
+        <div class="jm-texto jm-hero__parrafo">{{ section.settings.text }}</div>
+      {%- endif -%}
+      <div class="jm-hero__acciones">
+        {%- if section.settings.button_label != blank -%}
+          <a class="jm-btn jm-hero__btn" href="{{ section.settings.button_url | default: '#' }}">{{ section.settings.button_label | escape }}</a>
+        {%- endif -%}
+        {%- if section.settings.link_label != blank -%}
+          <a class="jm-hero__link" href="{{ section.settings.link_url | default: '#' }}">{{ section.settings.link_label | escape }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="jm-hero__foto">
+      <div class="jm-circulo">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1200 | image_tag: widths: '400, 600, 900, 1200', sizes: '(min-width: 990px) 560px, 80vw', alt: section.settings.image.alt, fetchpriority: 'high' }}
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+      {%- if section.settings.show_sparkles -%}
+        {% render 'jm-destello', forma: 'estrella', clase: 'jm-hero__d1' %}
+        {% render 'jm-destello', forma: 'estrella', clase: 'jm-hero__d2' %}
+        {% render 'jm-destello', forma: 'contorno', clase: 'jm-hero__d3' %}
+        {% render 'jm-destello', forma: 'triangulo', clase: 'jm-hero__d4' %}
+        {% render 'jm-destello', forma: 'tripunta', clase: 'jm-hero__d5' %}
+      {%- endif -%}
+      {%- if section.settings.stamp_text != blank -%}
+        <a class="jm-sello" href="{{ section.settings.stamp_url | default: section.settings.button_url | default: '#' }}" aria-label="{{ section.settings.stamp_text | escape }}">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <defs>
+              <path id="JmSello-{{ section.id }}" d="M100 100m-70 0a70 70 0 1 1 140 0a70 70 0 1 1-140 0"/>
+            </defs>
+            <circle cx="100" cy="100" r="98" fill="#e6f85c"/>
+            <g class="jm-sello__giro">
+              <text font-family="Archivo, sans-serif" font-size="25" font-weight="800" letter-spacing="1.5" fill="#9677c6">
+                <textPath href="#JmSello-{{ section.id }}">{{ section.settings.stamp_text | upcase | escape }}</textPath>
+              </text>
+            </g>
+            <path fill="#9677c6" transform="translate(72 72) scale(2.35)" d="M12 1c.9 5.6 4.4 9.1 11 11-6.6 1.9-10.1 5.4-11 11-.9-5.6-4.4-9.1-11-11 6.6-1.9 10.1-5.4 11-11z"/>
+          </svg>
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .jm-hero { overflow-x: clip; }
+
+  .jm-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(40px, 5vw, 80px);
+    padding-top: clamp(40px, 9vw, 150px);
+    padding-bottom: clamp(64px, 9vw, 140px);
+  }
+
+  .jm-hero__texto { display: grid; gap: clamp(22px, 2.6vw, 40px); justify-items: start; }
+  .jm-hero__titulo { font-size: clamp(46px, 7.2vw, 118px); }
+  .jm-hero__parrafo { max-width: 38ch; }
+
+  .jm-hero__acciones { display: grid; gap: clamp(28px, 3vw, 48px); justify-items: start; }
+  .jm-hero__btn { min-width: 214px; font-weight: 500; font-size: 20px; }
+  .jm-hero__link {
+    margin-left: clamp(0px, 14vw, 256px);
+    color: #fff;
+    font-weight: 800;
+    font-size: 21px;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .jm-hero__link:hover { color: var(--jm-lima); }
+
+  .jm-hero__foto { position: relative; width: min(100%, 580px); justify-self: center; }
+
+  .jm-hero__d1 { top: 6%; left: 1%; width: 18%; }
+  .jm-hero__d2 { top: -1%; left: 4%; width: 9%; transform: translateY(-40%); }
+  .jm-hero__d3 { top: 11%; left: -8%; width: 9%; }
+  .jm-hero__d4 { top: 7%; right: 0; width: 8.5%; }
+  .jm-hero__d5 { top: 11%; right: -9%; width: 13%; }
+
+  .jm-sello { position: absolute; left: 33%; bottom: -12%; width: 33%; display: block; }
+  .jm-sello svg { display: block; width: 100%; height: auto; }
+  .jm-sello__giro { transform-origin: 100px 100px; animation: jm-giro 18s linear infinite; }
+  @keyframes jm-giro { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .jm-sello__giro { animation: none; } }
+
+  @media (max-width: 989px) {
+    .jm-hero__grid { grid-template-columns: minmax(0, 1fr); }
+    .jm-hero__foto { width: min(82%, 460px); margin-top: 12px; }
+    .jm-hero__link { margin-left: 0; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "JM · Hero",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Titular", "info": "Usa Enter para cortar la línea", "default": "¡Hola soy\nJohanna!" },
+    { "type": "richtext", "id": "text", "label": "Texto", "default": "<p>Especialista en liberación de traumas de infancia, psicóloga clínica especialista en trastornos de ansiedad, depresión y traumas emocionales.</p>" },
+    { "type": "text", "id": "button_label", "label": "Texto del botón", "default": "Agendar" },
+    { "type": "url", "id": "button_url", "label": "Enlace del botón" },
+    { "type": "text", "id": "link_label", "label": "Enlace secundario", "default": "Conóceme ahora" },
+    { "type": "url", "id": "link_url", "label": "URL del enlace secundario" },
+    { "type": "image_picker", "id": "image", "label": "Foto (se recorta en círculo)" },
+    { "type": "checkbox", "id": "show_sparkles", "label": "Mostrar destellos", "default": true },
+    { "type": "text", "id": "stamp_text", "label": "Texto del sello giratorio", "default": "Agenda conmigo · Clic aquí · " },
+    { "type": "url", "id": "stamp_url", "label": "Enlace del sello", "info": "Si lo dejas vacío usa el del botón" }
+  ],
+  "presets": [{ "name": "JM · Hero" }]
+}
+{% endschema %}

@@ -1,0 +1,77 @@
+{%- liquid
+  assign col = section.settings.collection
+  if col == blank
+    assign col = collection
+  endif
+  assign titulo = section.settings.heading | default: col.title
+-%}
+<section class="jm-coleccion">
+  <div class="jm-wrap jm-coleccion__caja" style="--jm-cols: {{ section.settings.columns }};">
+    {%- if titulo != blank -%}
+      <h2 class="jm-coleccion__titulo">{{ titulo | escape }}</h2>
+    {%- endif -%}
+
+    {%- if col != blank -%}
+      {%- paginate col.products by section.settings.per_page -%}
+        <ul class="jm-coleccion__grid">
+          {%- for product in col.products -%}
+            <li>{% render 'jm-tarjeta', product: product, boton: section.settings.button_label, oferta: section.settings.show_badge %}</li>
+          {%- endfor -%}
+        </ul>
+        {%- if paginate.pages > 1 -%}
+          <nav class="jm-paginacion" aria-label="Páginas">{{ paginate | default_pagination: next: '→', previous: '←' }}</nav>
+        {%- endif -%}
+      {%- endpaginate -%}
+    {%- elsif request.design_mode -%}
+      <p class="jm-texto">Elige una colección en la configuración de la sección.</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .jm-coleccion__caja {
+    max-width: 1380px;
+    padding-top: clamp(28px, 3vw, 40px);
+    padding-bottom: clamp(56px, 7vw, 100px);
+  }
+  .jm-coleccion__titulo {
+    margin: 0 0 24px;
+    color: var(--jm-lima);
+    font-weight: 800;
+    font-size: clamp(24px, 2.3vw, 34px);
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+  .jm-coleccion__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--jm-cols, 4), minmax(0, 1fr));
+    gap: clamp(40px, 4vw, 56px) clamp(14px, 1.5vw, 22px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .jm-paginacion { margin-top: 48px; display: flex; justify-content: center; gap: 12px; font-weight: 700; font-size: 18px; }
+  .jm-paginacion a, .jm-paginacion span { color: var(--jm-lima); text-decoration: none; padding: 8px 12px; }
+  .jm-paginacion .current { background: var(--jm-lima); color: var(--jm-lila-texto); }
+
+  @media (max-width: 989px) {
+    .jm-coleccion__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "JM · Colección",
+  "tag": "section",
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Colección", "info": "Vacío = usa la colección de la página actual" },
+    { "type": "text", "id": "heading", "label": "Titular", "info": "Vacío = nombre de la colección" },
+    { "type": "range", "id": "columns", "label": "Columnas en escritorio", "min": 2, "max": 5, "step": 1, "default": 4 },
+    { "type": "range", "id": "per_page", "label": "Productos por página", "min": 4, "max": 48, "step": 4, "default": 24 },
+    { "type": "text", "id": "button_label", "label": "Texto del botón", "default": "Añadir al carrito" },
+    { "type": "checkbox", "id": "show_badge", "label": "Mostrar \"¡Oferta!\" en productos rebajados", "default": true }
+  ],
+  "presets": [{ "name": "JM · Colección" }]
+}
+{% endschema %}

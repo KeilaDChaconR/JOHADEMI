@@ -1,0 +1,125 @@
+{%- comment -%}
+  jm-estilos.liquid — estilos globales del sitio publicado (Johanna Martinez).
+  Incluir UNA vez en layout/theme.liquid, justo antes de </head>:
+      {% render 'jm-estilos' %}
+{%- endcomment -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --jm-lima: #e6f85c;
+    --jm-lima-activo: #cbd84a;
+    --jm-oliva: #b9c24b;
+    --jm-lila: #a88bd3;
+    --jm-lila-oscuro: #9677c6;
+    --jm-lila-texto: #9a7bcb;
+    --jm-fondo: linear-gradient(100deg, #b89ede 0%, #a88bd3 55%, #9a7cc7 100%);
+    --jm-font: 'Archivo', system-ui, sans-serif;
+    --jm-ancho: 1420px;
+    --jm-margen: clamp(20px, 6vw, 110px);
+  }
+
+  body {
+    background: var(--jm-fondo) fixed !important;
+    background-color: var(--jm-lila) !important;
+    font-family: var(--jm-font);
+    color: #fff;
+  }
+  /* Dawn pinta un fondo por sección: lo quitamos para que se vea un solo degradado */
+  .gradient { background: transparent !important; }
+  h1, h2, h3, h4, .h0, .h1, .h2, .h3 { font-family: var(--jm-font) !important; }
+
+  .jm-wrap {
+    max-width: var(--jm-ancho);
+    margin: 0 auto;
+    padding-left: var(--jm-margen);
+    padding-right: var(--jm-margen);
+  }
+
+  .jm-titular {
+    margin: 0;
+    font-family: var(--jm-font);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.045em;
+    line-height: .92;
+    color: var(--jm-lima);
+    font-size: clamp(34px, 8.6vw, 140px);
+  }
+
+  .jm-texto { font-size: clamp(17px, 1.3vw, 21px); line-height: 1.6; color: #fff; }
+  .jm-texto p { margin: 0 0 .9em; }
+  .jm-texto p:last-child { margin-bottom: 0; }
+  .jm-texto a { color: var(--jm-lima); }
+
+  .jm-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 30px;
+    background: var(--jm-lima);
+    color: var(--jm-lila-texto);
+    font-family: var(--jm-font);
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .jm-btn:hover { background: #fff; color: var(--jm-lila-oscuro); }
+  .jm-btn--sm { min-height: 44px; padding: 0 20px; font-size: 17px; font-weight: 500; }
+  .jm-btn--agotado { background: rgba(255,255,255,.3); color: #fff; cursor: default; }
+
+  .jm-circulo {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: clamp(5px, .55vw, 8px) solid var(--jm-lima);
+    overflow: hidden;
+  }
+  .jm-circulo img, .jm-circulo svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .jm-circulo .placeholder-svg { background: rgba(255,255,255,.15); fill: rgba(255,255,255,.5); }
+
+  .jm-destello { position: absolute; color: var(--jm-lima); pointer-events: none; height: auto; }
+
+  /* Tarjeta de producto (colecciones) */
+  .jm-tarjeta { display: grid; gap: 12px; justify-items: center; align-content: start; text-align: center; }
+  .jm-tarjeta__media { position: relative; display: block; width: 100%; }
+  .jm-tarjeta__img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; height: auto; }
+  .jm-tarjeta__oferta {
+    position: absolute; top: -12px; right: -12px;
+    width: 60px; height: 60px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--jm-oliva); color: #fff;
+    font-weight: 700; font-size: 14px; letter-spacing: -0.02em;
+  }
+  .jm-tarjeta__titulo {
+    margin-top: 16px;
+    color: #fff;
+    font-weight: 600;
+    font-size: clamp(14px, 1.1vw, 17px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-wrap: balance;
+  }
+  .jm-tarjeta__precio { margin: 0; color: var(--jm-lima); font-weight: 700; font-size: clamp(16px, 1.25vw, 19px); }
+  .jm-tarjeta__precio s { opacity: .6; font-weight: 600; margin-right: 6px; }
+  .jm-tarjeta__form { margin: 8px 0 0; }
+  .jm-tarjeta .jm-btn { margin-top: 8px; }
+  .jm-tarjeta__form .jm-btn { margin-top: 0; }
+
+  :focus-visible { outline: 2px solid var(--jm-lima); outline-offset: 3px; }
+
+  @media (max-width: 749px) {
+    .jm-btn--sm { font-size: 14px; padding: 0 14px; }
+    .jm-tarjeta__oferta { width: 48px; height: 48px; font-size: 12px; top: -8px; right: -6px; }
+  }
+</style>
