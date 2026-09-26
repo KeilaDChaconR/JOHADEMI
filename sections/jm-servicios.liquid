@@ -1,0 +1,87 @@
+<section class="jm-servicios">
+  <div class="jm-wrap jm-servicios__caja">
+    <h1 class="jm-titular jm-servicios__titulo">{{ section.settings.heading | escape | newline_to_br }}</h1>
+    <hr class="jm-servicios__linea">
+
+    <div class="jm-servicios__grid">
+      <div class="jm-servicios__foto">
+        <div class="jm-circulo">
+          {%- if section.settings.image != blank -%}
+            {{ section.settings.image | image_url: width: 1000 | image_tag: widths: '400, 700, 1000', sizes: '(min-width: 990px) 470px, 80vw', alt: section.settings.image.alt, loading: 'lazy' }}
+          {%- else -%}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+        {%- if section.settings.show_heart -%}
+          <span class="jm-servicios__corazon">{% render 'jm-icono', icono: 'corazon' %}</span>
+        {%- endif -%}
+      </div>
+
+      <div class="jm-servicios__agenda">
+        {%- if section.settings.text != blank -%}
+          <div class="jm-texto">{{ section.settings.text }}</div>
+        {%- endif -%}
+        {%- if section.settings.calendly_url != blank -%}
+          <div class="calendly-inline-widget jm-servicios__calendly" data-url="{{ section.settings.calendly_url }}" style="height: {{ section.settings.calendly_height }}px;"></div>
+          <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        {%- elsif request.design_mode -%}
+          <div class="jm-servicios__vacio">Pega tu enlace de Calendly en la configuración de la sección.</div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .jm-servicios { overflow-x: clip; }
+  .jm-servicios__caja { padding-top: clamp(36px, 5.5vw, 80px); padding-bottom: clamp(64px, 8vw, 120px); }
+  .jm-servicios__titulo { font-size: clamp(44px, 8vw, 132px); }
+  .jm-servicios__linea { margin: clamp(36px, 5vw, 90px) 0 clamp(40px, 3.5vw, 56px); border: 0; border-top: 2px solid var(--jm-lima); }
+
+  .jm-servicios__grid {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1fr);
+    gap: clamp(40px, 7vw, 130px);
+    align-items: end;
+  }
+
+  .jm-servicios__foto { position: relative; width: min(100%, 470px); justify-self: center; }
+  .jm-servicios__corazon {
+    position: absolute;
+    top: 4%;
+    left: -6%;
+    width: 23%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--jm-lima);
+    color: var(--jm-lila);
+  }
+  .jm-servicios__corazon .jm-icono { width: 55%; height: 55%; }
+
+  .jm-servicios__agenda { display: grid; gap: 24px; min-width: 0; }
+  .jm-servicios__calendly { width: 100%; min-width: 0; background: #fff; }
+  .jm-servicios__vacio { padding: 40px; border: 2px dashed var(--jm-lima); color: #fff; text-align: center; }
+
+  @media (max-width: 989px) {
+    .jm-servicios__grid { grid-template-columns: minmax(0, 1fr); }
+    .jm-servicios__foto { width: min(78%, 400px); }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "JM · Servicios + agenda",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Titular", "default": "Todos mis\nservicios" },
+    { "type": "image_picker", "id": "image", "label": "Foto (se recorta en círculo)" },
+    { "type": "checkbox", "id": "show_heart", "label": "Mostrar corazón", "default": true },
+    { "type": "richtext", "id": "text", "label": "Texto sobre la agenda (opcional)" },
+    { "type": "url", "id": "calendly_url", "label": "Enlace de Calendly", "info": "Ej: https://calendly.com/johanna-martinez" },
+    { "type": "range", "id": "calendly_height", "label": "Alto del calendario", "min": 500, "max": 1100, "step": 50, "unit": "px", "default": 750 }
+  ],
+  "presets": [{ "name": "JM · Servicios + agenda" }]
+}
+{% endschema %}
