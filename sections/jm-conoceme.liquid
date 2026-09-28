@@ -2,23 +2,47 @@
   <div class="jm-wrap jm-conoceme__caja">
     <h1 class="jm-titular jm-conoceme__titulo">{{ section.settings.heading | escape | newline_to_br }}</h1>
 
-    <div class="jm-conoceme__grid">
-      <div class="jm-texto jm-conoceme__texto">{{ section.settings.text }}</div>
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign original = block.settings.original_image
+        case original
+          when 'jm-conoceme-1.png'
+            assign ow = 587
+            assign oh = 504
+          when 'jm-conoceme-2.png'
+            assign ow = 543
+            assign oh = 525
+          when 'jm-conoceme-3.png'
+            assign ow = 603
+            assign oh = 524
+        endcase
+      -%}
+      <div class="jm-conoceme__fila{% if block.settings.image_position == 'izquierda' %} jm-conoceme__fila--izq{% endif %}" {{ block.shopify_attributes }}>
+        <div class="jm-conoceme__contenido">
+          {%- if block.settings.heading != blank -%}
+            <h2 class="jm-titular jm-conoceme__subtitulo">{{ block.settings.heading | escape }}</h2>
+          {%- endif -%}
+          <div class="jm-texto jm-conoceme__texto">{{ block.settings.text }}</div>
+        </div>
 
-      <div class="jm-conoceme__foto">
-        <div class="jm-circulo">
-          {%- if section.settings.image != blank -%}
-            {{ section.settings.image | image_url: width: 1000 | image_tag: widths: '400, 700, 1000', sizes: '(min-width: 990px) 460px, 80vw', alt: section.settings.image.alt, loading: 'lazy' }}
+        <div class="jm-conoceme__foto">
+          {%- if block.settings.image != blank -%}
+            <div class="jm-circulo">
+              {{ block.settings.image | image_url: width: 1000 | image_tag: widths: '400, 700, 1000', sizes: '(min-width: 990px) 460px, 80vw', alt: block.settings.image.alt, loading: 'lazy' }}
+            </div>
+            {%- if block.settings.show_sparkles -%}
+              {% render 'jm-destello', forma: 'estrella', clase: 'jm-conoceme__d1' %}
+              {% render 'jm-destello', forma: 'contorno', clase: 'jm-conoceme__d2' %}
+            {%- endif -%}
+          {%- elsif original != 'ninguna' -%}
+            {%- comment -%} Foto del sitio original: ya trae el círculo y los adornos {%- endcomment -%}
+            <img class="jm-conoceme__original" src="{{ original | asset_url }}" width="{{ ow }}" height="{{ oh }}" alt="Johanna Martinez" loading="lazy">
           {%- else -%}
-            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            <div class="jm-circulo">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
           {%- endif -%}
         </div>
-        {%- if section.settings.show_sparkles -%}
-          {% render 'jm-destello', forma: 'estrella', clase: 'jm-conoceme__d1' %}
-          {% render 'jm-destello', forma: 'contorno', clase: 'jm-conoceme__d2' %}
-        {%- endif -%}
       </div>
-    </div>
+    {%- endfor -%}
   </div>
 </section>
 
@@ -26,28 +50,35 @@
   .jm-conoceme { overflow-x: clip; }
   .jm-conoceme__caja {
     display: grid;
-    gap: clamp(36px, 5vw, 80px);
+    gap: clamp(56px, 7vw, 120px);
     padding-top: clamp(36px, 5.5vw, 90px);
     padding-bottom: clamp(64px, 8vw, 120px);
   }
   .jm-conoceme__titulo { font-size: clamp(34px, 9vw, 150px); }
+  .jm-conoceme__subtitulo { margin-bottom: clamp(20px, 2.4vw, 36px); font-size: clamp(34px, 5.6vw, 92px); }
 
-  .jm-conoceme__grid {
+  .jm-conoceme__fila {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, .8fr);
     gap: clamp(40px, 7vw, 130px);
     align-items: center;
   }
+  .jm-conoceme__fila--izq { grid-template-columns: minmax(0, .8fr) minmax(0, 1fr); }
+  .jm-conoceme__fila--izq .jm-conoceme__foto { order: -1; }
+
   .jm-conoceme__texto { max-width: 740px; text-align: justify; hyphens: auto; }
 
-  .jm-conoceme__foto { position: relative; width: min(100%, 460px); justify-self: center; }
+  .jm-conoceme__foto { position: relative; width: min(100%, 520px); justify-self: center; }
+  .jm-conoceme__original { display: block; width: 100%; height: auto; }
   .jm-conoceme__d1 { top: 12%; right: -9%; width: 22%; }
   .jm-conoceme__d2 { top: 33%; right: -17%; width: 14%; }
 
   @media (max-width: 989px) {
-    .jm-conoceme__grid { grid-template-columns: minmax(0, 1fr); }
+    .jm-conoceme__fila,
+    .jm-conoceme__fila--izq { grid-template-columns: minmax(0, 1fr); }
+    .jm-conoceme__fila--izq .jm-conoceme__foto { order: 0; }
     .jm-conoceme__texto { text-align: left; }
-    .jm-conoceme__foto { width: min(78%, 400px); }
+    .jm-conoceme__foto { width: min(84%, 440px); }
   }
 {% endstylesheet %}
 
@@ -56,11 +87,45 @@
   "name": "JM · Conóceme",
   "tag": "section",
   "settings": [
-    { "type": "textarea", "id": "heading", "label": "Titular", "default": "Hola\n¡Conozcámonos!" },
-    { "type": "richtext", "id": "text", "label": "Historia", "default": "<p>Soy Johanna Martinez, crecí en un hogar completamente disfuncional donde viví diferentes tipos de violencia y además crecí en un contexto de mucha pobreza. Mi historia es mucho más larga y profunda, historia que poco a poco si sigues mis redes podrás ir descubriendo donde entenderás cómo transformé estas experiencias a mi favor. Ahora me dedico a enseñar a otras personas sobrevivientes de traumas a transformar su vida tal y como yo lo sigo haciendo.</p><p>En mi vida, se generaron diversos traumas que afectaron mi salud física y emocional que desencadenaron enfermedades como la depresión, ansiedad, ataques de pánico y un proceso físico de enfermedad autoinmune.</p><p>Sin embargo, a los 27 años, ocurrió un despertar que cambió el rumbo de mi vida. Si bien ya estudiaba psicología, fue el encuentro con la medicina tradicional china.</p>" },
-    { "type": "image_picker", "id": "image", "label": "Foto (se recorta en círculo)" },
-    { "type": "checkbox", "id": "show_sparkles", "label": "Mostrar destellos", "default": true }
+    { "type": "textarea", "id": "heading", "label": "Titular", "default": "Hola\n¡Conozcámonos!" }
   ],
-  "presets": [{ "name": "JM · Conóceme" }]
+  "blocks": [
+    {
+      "type": "bloque",
+      "name": "Texto + foto",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Título (opcional)" },
+        { "type": "richtext", "id": "text", "label": "Texto", "default": "<p>Escribe aquí tu historia.</p>" },
+        { "type": "image_picker", "id": "image", "label": "Foto (se recorta en círculo)", "info": "Si la dejas vacía se usa la foto del sitio original" },
+        {
+          "type": "select", "id": "original_image", "label": "Foto del sitio original", "default": "ninguna",
+          "options": [
+            { "value": "ninguna", "label": "Ninguna" },
+            { "value": "jm-conoceme-1.png", "label": "Masaje (estrellas)" },
+            { "value": "jm-conoceme-2.png", "label": "Johanna (pastilla)" },
+            { "value": "jm-conoceme-3.png", "label": "Grupo (triángulo)" }
+          ]
+        },
+        {
+          "type": "select", "id": "image_position", "label": "Foto a la", "default": "derecha",
+          "options": [
+            { "value": "derecha", "label": "Derecha" },
+            { "value": "izquierda", "label": "Izquierda" }
+          ]
+        },
+        { "type": "checkbox", "id": "show_sparkles", "label": "Destellos sobre la foto subida", "default": true }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JM · Conóceme",
+      "blocks": [
+        { "type": "bloque", "settings": { "original_image": "jm-conoceme-1.png" } },
+        { "type": "bloque", "settings": { "heading": "Profesional", "original_image": "jm-conoceme-2.png", "image_position": "izquierda" } },
+        { "type": "bloque", "settings": { "heading": "Mi objetivo", "original_image": "jm-conoceme-3.png" } }
+      ]
+    }
+  ]
 }
 {% endschema %}
