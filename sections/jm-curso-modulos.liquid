@@ -1,0 +1,119 @@
+<section class="jm-curso jm-curso-modulos"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handleize }}"{% endif %}>
+  <div class="jm-wrap">
+    <div class="jm-curso__cabeza">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="jm-curso__ceja">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      <h2 class="jm-curso__titulo">{{ section.settings.heading | escape }}</h2>
+    </div>
+
+    <div class="jm-curso-modulos__lista">
+      {%- for block in section.blocks -%}
+        {%- assign puntos = block.settings.points | newline_to_br | split: '<br />' -%}
+        <details class="jm-curso__tarjeta jm-modulo"{% if block.settings.open %} open{% endif %} {{ block.shopify_attributes }}>
+          <summary class="jm-modulo__cabeza">
+            <span>
+              <span class="jm-curso__etiqueta jm-modulo__etiqueta">{{ block.settings.label | default: 'Módulo' | escape }}</span>
+              <span class="jm-modulo__titulo">{{ block.settings.title | escape }}</span>
+            </span>
+            <span class="jm-modulo__mas" aria-hidden="true"></span>
+          </summary>
+          <div class="jm-modulo__cuerpo">
+            {%- if block.settings.text != blank -%}
+              <div class="jm-modulo__texto">{{ block.settings.text }}</div>
+            {%- endif -%}
+            {%- if block.settings.points != blank -%}
+              <ul class="jm-modulo__puntos">
+                {%- for punto in puntos -%}
+                  {%- assign punto = punto | strip -%}
+                  {%- if punto != blank -%}<li>{{ punto | escape }}</li>{%- endif -%}
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .jm-curso-modulos__lista { display: grid; gap: 16px; max-width: 900px; margin: 0 auto; }
+
+  .jm-modulo { padding: clamp(22px, 2.4vw, 30px); }
+  .jm-modulo__cabeza {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    list-style: none;
+    cursor: pointer;
+  }
+  .jm-modulo__cabeza::-webkit-details-marker { display: none; }
+  .jm-modulo__etiqueta { margin-bottom: 12px; }
+  .jm-modulo__titulo {
+    display: block;
+    color: #fff;
+    font-weight: 700;
+    font-size: clamp(18px, 1.6vw, 22px);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+
+  .jm-modulo__mas { position: relative; flex: 0 0 22px; height: 22px; margin-top: 4px; }
+  .jm-modulo__mas::before,
+  .jm-modulo__mas::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    margin-top: -1.5px;
+    background: var(--jm-lima);
+    transition: transform .2s;
+  }
+  .jm-modulo__mas::after { transform: rotate(90deg); }
+  .jm-modulo[open] .jm-modulo__mas::after { transform: rotate(0deg); }
+
+  .jm-modulo__cuerpo { display: grid; gap: 14px; margin-top: 18px; color: #fff; }
+  .jm-modulo__texto { font-size: 16px; line-height: 1.7; }
+  .jm-modulo__texto p { margin: 0; }
+  .jm-modulo__puntos { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; font-size: 15px; line-height: 1.55; }
+  .jm-modulo__puntos li { display: flex; gap: 10px; }
+  .jm-modulo__puntos li::before { content: '✻'; flex-shrink: 0; color: var(--jm-lima); }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "JM · Curso: módulos",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Texto pequeño superior", "default": "Contenido del programa" },
+    { "type": "text", "id": "heading", "label": "Título", "default": "Módulos" },
+    { "type": "text", "id": "anchor", "label": "Ancla (opcional)", "info": "Para enlazar a esta sección con #nombre" }
+  ],
+  "blocks": [
+    {
+      "type": "modulo",
+      "name": "Módulo",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Etiqueta", "default": "Módulo 1" },
+        { "type": "text", "id": "title", "label": "Título", "default": "Nombre del módulo" },
+        { "type": "richtext", "id": "text", "label": "Descripción" },
+        { "type": "textarea", "id": "points", "label": "Puntos", "info": "Uno por línea" },
+        { "type": "checkbox", "id": "open", "label": "Abierto al cargar", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JM · Curso: módulos",
+      "blocks": [
+        { "type": "modulo", "settings": { "label": "Módulo 1", "open": true } },
+        { "type": "modulo", "settings": { "label": "Módulo 2" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

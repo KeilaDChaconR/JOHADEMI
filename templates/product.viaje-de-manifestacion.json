@@ -1,0 +1,245 @@
+{
+  "sections": {
+    "portada": {
+      "type": "jm-curso-hero",
+      "settings": {
+        "badge": "Lista de espera abierta · Hasta el 18 de octubre",
+        "heading": "Viaje de Manifestación",
+        "text": "<p>Un programa de 5 semanas para dejar de huir del dinero, reconciliarte con él y construir una relación más consciente, segura y poderosa con tus finanzas.</p>",
+        "button_label": "Únete a la lista de espera",
+        "button_url": "#lista-espera",
+        "link_label": "Ver fechas",
+        "link_url": "#fechas",
+        "author": "Johanna Martínez",
+        "author_role": "Psicóloga clínica"
+      }
+    },
+    "que_es": {
+      "type": "jm-curso-texto",
+      "settings": {
+        "eyebrow": "¿Qué es?",
+        "heading": "Viaje de Manifestación",
+        "align": "left",
+        "anchor": "programa",
+        "text": "<p>Viaje de Manifestación es un programa de cinco semanas que empecé a desarrollar hace cinco años, cuando comprendí algo que durante mucho tiempo nos enseñaron a negar: el dinero sí importa.</p><p>Importa porque nos da libertad, tranquilidad y capacidad de elegir. Nos permite construir la vida que deseamos, acceder a nuevas oportunidades y salir de lugares, relaciones o situaciones en las que ya no queremos estar. El dinero es una herramienta y, cuando aprendemos a relacionarnos mejor con él, puede convertirse en un verdadero superpoder.</p><p>Sin embargo, para muchas personas hablar de dinero sigue siendo incómodo. Evitamos revisar las cuentas, aplazamos decisiones, gastamos sin plena conciencia y normalizamos vivir endeudadas, depender de tarjetas de crédito o estar siempre debiendo. Pero existe otra manera de vivir: con mayor claridad, control y tranquilidad financiera.</p><p>Viaje de Manifestación es un espacio para dejar de huir, reconciliarte con el dinero y construir una relación más consciente, segura y poderosa con tus finanzas.</p><p>Tal vez trabajas mucho, pero sientes que el dinero desaparece. Tienes sueños y proyectos, pero no sabes cómo financiarlos ni por dónde comenzar. Esta experiencia fue creada para que puedas ordenar tus cuentas, controlar mejor tus gastos, reducir deudas y desarrollar estrategias concretas para generar más dinero.</p><p>No se trata solamente de organizar tus ingresos y gastos. Se trata de comprender cómo te relacionas con el dinero, qué emociones influyen en tus decisiones y qué traumas pueden estar condicionando tu realidad financiera. Desde esa conciencia, qué necesitas transformar para construir abundancia de una manera consciente, realista y sostenible.</p>"
+      }
+    },
+    "modulos": {
+      "type": "jm-curso-modulos",
+      "settings": {
+        "eyebrow": "Contenido del programa",
+        "heading": "5 módulos de transformación",
+        "anchor": "modulos"
+      },
+      "blocks": {
+        "modulo_1": {
+          "type": "modulo",
+          "settings": {
+            "label": "Módulo 1",
+            "title": "Reconocer dónde estás para saber hacia dónde quieres ir",
+            "text": "<p>En este módulo comenzarás a reconocer qué aprendiste sobre el dinero, qué creencias construiste a su alrededor y qué formas de vincularte con él continúan repitiéndose en tu vida. No se trata simplemente de pensar diferente, sino de comprender la historia emocional y corporal que sostiene tu relación actual con el dinero.</p>",
+            "points": "Evaluar cómo te relacionas actualmente con el dinero en las distintas áreas de tu vida.\nConstruir una línea de tiempo de tu historia con el dinero.\nReconocer cómo comenzó a construirse tu relación con el dinero durante la infancia.\nComprender qué emociones aparecen en tu vínculo con el dinero: miedo, culpa, vergüenza, ansiedad, desconfianza o escasez.\nObservar cómo responde tu cuerpo frente al dinero al cobrar, gastar, recibir, ahorrar o invertir.",
+            "open": true
+          }
+        },
+        "modulo_2": {
+          "type": "modulo",
+          "settings": {
+            "label": "Módulo 2",
+            "title": "Reconocer tu potencial cognitivo y reprogramar tu realidad",
+            "text": "<p>Después de reconocer cómo se construyó tu relación con el dinero, comenzarás a observar con honestidad la realidad que hoy estás viviendo, revisando las áreas de tu vida que has descuidado o en las que sigues sintiéndote estancada.</p>",
+            "points": "Evaluar el estado actual de las principales áreas de tu vida.\nIdentificar la distancia entre la vida que tienes y la que deseas construir, sin juzgarte.\nReconocer qué emociones aparecen al mirar tu realidad con honestidad.\nObservar la comparación y la envidia sin juzgarte, usándolas para reconocer deseos importantes.\nDefinir qué quieres construir en cada área de tu vida y establecer prioridades claras.\nConvertir tus deseos en objetivos concretos y alcanzables.",
+            "open": false
+          }
+        },
+        "modulo_3": {
+          "type": "modulo",
+          "settings": {
+            "label": "Módulo 3",
+            "title": "Camino hacia la versión que quiero ser",
+            "text": "<p>Trabajaremos con las creencias que sostienen tus resultados actuales: las ideas sobre ti, sobre lo que mereces y sobre lo que es posible para ti, y cómo estas quedan asociadas a respuestas emocionales y corporales en tu sistema nervioso.</p>",
+            "points": "Revisar los resultados de los formatos realizados para reconocer qué está ocurriendo hoy en cada área de tu vida.\nIdentificar las creencias que acompañan esos resultados.\nReconocer cómo esas creencias se expresan en tu cuerpo y sistema nervioso.\nCuestionar las creencias que hoy sostienen resultados que ya no quieres repetir.\nConstruir nuevas formas de interpretar y responder frente a viejos patrones.\nEmpezar a diseñar un plan de acción claro y posible.",
+            "open": false
+          }
+        },
+        "modulo_4": {
+          "type": "modulo",
+          "settings": {
+            "label": "Módulo 4",
+            "title": "Balance, energía y relación con el dinero",
+            "text": "<p>Haremos un balance emocional y cognitivo sobre cómo se siente cada participante hasta este punto del proceso. Desde la neurociencia y el trabajo energético entenderás que manifestar no depende solo de lo que piensas, sino de cómo te sientes.</p>",
+            "points": "Identificar nuevas emociones, resistencias o creencias que antes pasaban desapercibidas.\nComprender las emociones como canal directo para atraer experiencias coherentes con tu estado interno.",
+            "open": false
+          }
+        },
+        "modulo_5": {
+          "type": "modulo",
+          "settings": {
+            "label": "Módulo 5",
+            "title": "Integrar el cambio y sostener la vida que quieres construir",
+            "text": "<p>Este módulo representa el cierre y la integración práctica de todo el proceso. Transformar la relación con el dinero requiere también conocer con claridad cuánto recibes, en qué lo usas, qué gastos revisar y qué objetivos financiar. Integraremos el trabajo emocional, corporal y energético con decisiones financieras concretas.</p>",
+            "points": "Revisar tus ingresos, gastos, deudas y prioridades para construir una visión clara de tu realidad financiera.\nReconocer cómo tu personalidad influye en tus decisiones, hábitos y resultados.\nCuestionar las creencias que pueden llevarte nuevamente a los mismos resultados.\nConstruir hábitos coherentes con tus objetivos personales y financieros.\nOrganizar un plan financiero y de acción con pasos y seguimiento en el tiempo.\nConsolidar un plan de continuidad para mantener los cambios después del programa.",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "modulo_1",
+        "modulo_2",
+        "modulo_3",
+        "modulo_4",
+        "modulo_5"
+      ]
+    },
+    "resultado": {
+      "type": "jm-curso-texto",
+      "settings": {
+        "eyebrow": "Resultado del programa",
+        "heading": "",
+        "align": "center",
+        "anchor": "",
+        "text": "<p>Al finalizar, habrás integrado las herramientas cognitivas, emocionales y prácticas necesarias para sostener los cambios alcanzados. Tu mente y tu cuerpo estarán entrenados para identificar los viejos patrones, redirigir tus acciones y continuar construyendo resultados coherentes con la vida que deseas.</p>",
+        "quote": "El cambio real no llega cuando te esfuerzas por hacerlo diferente, sino cuando te conviertes en alguien que actúa de una nueva manera, sin esfuerzo."
+      }
+    },
+    "fechas": {
+      "type": "jm-curso-fechas",
+      "settings": {
+        "eyebrow": "Fechas y modalidad",
+        "heading": "5 semanas, cada miércoles",
+        "anchor": "fechas"
+      },
+      "blocks": {
+        "fecha_1": {
+          "type": "fecha",
+          "settings": {
+            "icon": "🌀",
+            "date": "Mié 4 nov",
+            "note": ""
+          }
+        },
+        "fecha_2": {
+          "type": "fecha",
+          "settings": {
+            "icon": "🌿",
+            "date": "Mié 11 nov",
+            "note": ""
+          }
+        },
+        "fecha_3": {
+          "type": "fecha",
+          "settings": {
+            "icon": "💫",
+            "date": "Mié 18 nov",
+            "note": ""
+          }
+        },
+        "fecha_4": {
+          "type": "fecha",
+          "settings": {
+            "icon": "🌸",
+            "date": "Mié 25 nov",
+            "note": ""
+          }
+        },
+        "fecha_5": {
+          "type": "fecha",
+          "settings": {
+            "icon": "🌞",
+            "date": "Mié 2 dic",
+            "note": "Cierre"
+          }
+        },
+        "dato_1": {
+          "type": "dato",
+          "settings": {
+            "icon": "🕖",
+            "title": "7:00 p.m.",
+            "text": "Hora Colombia"
+          }
+        },
+        "dato_2": {
+          "type": "dato",
+          "settings": {
+            "icon": "💻",
+            "title": "Online",
+            "text": "A través de Zoom"
+          }
+        },
+        "dato_3": {
+          "type": "dato",
+          "settings": {
+            "icon": "🎥",
+            "title": "Grabaciones",
+            "text": "Disponibles 2 meses"
+          }
+        }
+      },
+      "block_order": [
+        "fecha_1",
+        "fecha_2",
+        "fecha_3",
+        "fecha_4",
+        "fecha_5",
+        "dato_1",
+        "dato_2",
+        "dato_3"
+      ]
+    },
+    "precios": {
+      "type": "jm-curso-precios",
+      "settings": {
+        "badge": "Solo hasta el 18 de octubre",
+        "heading": "Únete a la lista de espera",
+        "text": "<p>Solo las personas registradas en la lista recibirán el enlace de pago con el precio preferencial exclusivo.</p>",
+        "button_type": "enlace",
+        "button_label": "Regístrate ahora",
+        "button_url": "https://johademi.com/lista-de-espera/",
+        "note": "Combina neurociencia, emoción y práctica consciente para transformar tu manera de crear realidad.",
+        "anchor": "lista-espera"
+      },
+      "blocks": {
+        "lista": {
+          "type": "precio",
+          "settings": {
+            "title": "Lista de espera",
+            "price": "",
+            "text": "Precio preferencial exclusivo — disponible solo hasta el 18 de octubre.",
+            "highlight": true
+          }
+        },
+        "preventa": {
+          "type": "precio",
+          "settings": {
+            "title": "Preventa general",
+            "price": "",
+            "text": "Una vez cierre la lista de espera, el valor sube — vigente hasta el 25 de octubre.",
+            "highlight": false
+          }
+        },
+        "final": {
+          "type": "precio",
+          "settings": {
+            "title": "Precio final",
+            "price": "",
+            "text": "Vigente durante los últimos días antes del inicio del programa — desde el 26 de octubre.",
+            "highlight": false
+          }
+        }
+      },
+      "block_order": [
+        "lista",
+        "preventa",
+        "final"
+      ]
+    }
+  },
+  "order": [
+    "portada",
+    "que_es",
+    "modulos",
+    "resultado",
+    "fechas",
+    "precios"
+  ]
+}

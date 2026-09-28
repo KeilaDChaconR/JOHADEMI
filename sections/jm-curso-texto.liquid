@@ -1,0 +1,64 @@
+<section class="jm-curso jm-curso-texto"{% if section.settings.anchor != blank %} id="{{ section.settings.anchor | handleize }}"{% endif %}>
+  <div class="jm-wrap">
+    <div class="jm-curso-texto__caja jm-curso-texto__caja--{{ section.settings.align }}">
+      {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+        <div class="jm-curso__cabeza">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="jm-curso__ceja">{{ section.settings.eyebrow | escape }}</p>
+          {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="jm-curso__titulo">{{ section.settings.heading | escape }}</h2>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <div class="jm-texto jm-curso-texto__cuerpo">{{ section.settings.text }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.quote != blank -%}
+        <blockquote class="jm-curso-texto__cita">{{ section.settings.quote | escape }}</blockquote>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .jm-curso-texto__caja { max-width: 860px; margin: 0 auto; }
+  .jm-curso-texto__caja--center { text-align: center; }
+  .jm-curso-texto__cuerpo p { margin-bottom: 1.1em; }
+  .jm-curso-texto__cita {
+    margin: clamp(28px, 3vw, 40px) 0 0;
+    padding: 0;
+    color: var(--jm-lima);
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(19px, 1.8vw, 24px);
+    line-height: 1.45;
+    text-wrap: balance;
+  }
+  .jm-curso-texto__cita::before { content: '“'; }
+  .jm-curso-texto__cita::after { content: '”'; }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "JM · Curso: texto",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Texto pequeño superior", "default": "¿Qué es?" },
+    { "type": "text", "id": "heading", "label": "Título" },
+    { "type": "richtext", "id": "text", "label": "Texto", "default": "<p>Describe aquí el programa.</p>" },
+    { "type": "textarea", "id": "quote", "label": "Cita destacada (opcional)" },
+    {
+      "type": "select", "id": "align", "label": "Alineación del texto", "default": "left",
+      "options": [
+        { "value": "left", "label": "Izquierda" },
+        { "value": "center", "label": "Centro" }
+      ]
+    },
+    { "type": "text", "id": "anchor", "label": "Ancla (opcional)", "info": "Para enlazar a esta sección con #nombre" }
+  ],
+  "presets": [{ "name": "JM · Curso: texto" }]
+}
+{% endschema %}

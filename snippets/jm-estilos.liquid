@@ -131,6 +131,38 @@
   .jm-tarjeta .jm-btn { margin-top: 8px; }
   .jm-tarjeta__form .jm-btn { margin-top: 0; }
 
+  /* Landing de cursos (secciones jm-curso-*) */
+  .jm-curso { padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); scroll-margin-top: 24px; }
+  .jm-curso__cabeza { max-width: 680px; margin: 0 auto clamp(32px, 4vw, 52px); text-align: center; }
+  .jm-curso__ceja {
+    margin: 0 0 14px;
+    color: rgba(255, 255, 255, .75);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .jm-curso__titulo {
+    margin: 0;
+    color: var(--jm-lima);
+    font-weight: 800;
+    font-size: clamp(28px, 3.4vw, 44px);
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+  .jm-curso__etiqueta {
+    display: inline-flex;
+    padding: 7px 16px;
+    background: var(--jm-lima);
+    color: var(--jm-lila-texto);
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .jm-curso__tarjeta { background: rgba(255, 255, 255, .12); border: 1px solid rgba(230, 248, 92, .35); }
+
   :focus-visible { outline: 2px solid var(--jm-lima); outline-offset: 3px; }
 
   @media (max-width: 749px) {

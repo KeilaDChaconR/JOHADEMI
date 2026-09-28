@@ -1,0 +1,73 @@
+{%- assign titulo = section.settings.heading | default: product.title -%}
+<section class="jm-curso jm-curso-hero">
+  <div class="jm-wrap jm-curso-hero__caja">
+    {%- if section.settings.badge != blank -%}
+      <p class="jm-curso__etiqueta jm-curso-hero__etiqueta">{{ section.settings.badge | escape }}</p>
+    {%- endif -%}
+
+    <h1 class="jm-titular jm-curso-hero__titulo">{{ titulo | escape }}</h1>
+
+    {%- if section.settings.text != blank -%}
+      <div class="jm-texto jm-curso-hero__texto">{{ section.settings.text }}</div>
+    {%- endif -%}
+
+    <div class="jm-curso-hero__acciones">
+      {%- if section.settings.button_label != blank -%}
+        <a class="jm-btn" href="{{ section.settings.button_url | default: '#' }}">{{ section.settings.button_label | escape }}</a>
+      {%- endif -%}
+      {%- if section.settings.link_label != blank -%}
+        <a class="jm-curso-hero__link" href="{{ section.settings.link_url | default: '#' }}">{{ section.settings.link_label | escape }}</a>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.author != blank -%}
+      <p class="jm-curso-hero__autora">
+        <strong>{{ section.settings.author | escape }}</strong>
+        {%- if section.settings.author_role != blank -%}
+          <span aria-hidden="true">·</span>
+          {{ section.settings.author_role | escape }}
+        {%- endif -%}
+      </p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .jm-curso-hero { overflow-x: clip; }
+  .jm-curso-hero__caja { display: grid; justify-items: center; gap: clamp(20px, 2.4vw, 30px); text-align: center; }
+  .jm-curso-hero__etiqueta { margin: 0; }
+  .jm-curso-hero__titulo { font-size: clamp(40px, 7vw, 110px); text-wrap: balance; }
+  .jm-curso-hero__texto { max-width: 42ch; }
+  .jm-curso-hero__acciones { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px 32px; }
+  .jm-curso-hero__link {
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    text-underline-offset: 4px;
+  }
+  .jm-curso-hero__link:hover { color: var(--jm-lima); }
+  .jm-curso-hero__autora { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 0; color: #fff; font-size: 16px; }
+  .jm-curso-hero__autora strong { color: var(--jm-lima); font-weight: 800; text-transform: uppercase; }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "JM · Curso: portada",
+  "tag": "section",
+  "enabled_on": { "templates": ["product"] },
+  "settings": [
+    { "type": "text", "id": "badge", "label": "Etiqueta superior", "default": "Lista de espera abierta" },
+    { "type": "text", "id": "heading", "label": "Titular", "info": "Vacío = nombre del producto" },
+    { "type": "richtext", "id": "text", "label": "Texto" },
+    { "type": "text", "id": "button_label", "label": "Texto del botón", "default": "Únete a la lista de espera" },
+    { "type": "text", "id": "button_url", "label": "Enlace del botón", "info": "#lista-espera baja a la sección de precios", "default": "#lista-espera" },
+    { "type": "text", "id": "link_label", "label": "Enlace secundario", "default": "Ver fechas" },
+    { "type": "text", "id": "link_url", "label": "URL del enlace secundario", "default": "#fechas" },
+    { "type": "text", "id": "author", "label": "Autora", "default": "Johanna Martínez" },
+    { "type": "text", "id": "author_role", "label": "Profesión", "default": "Psicóloga clínica" }
+  ],
+  "presets": [{ "name": "JM · Curso: portada" }]
+}
+{% endschema %}
