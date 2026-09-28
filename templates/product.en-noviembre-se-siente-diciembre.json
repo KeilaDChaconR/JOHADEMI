@@ -1,0 +1,189 @@
+{
+  "sections": {
+    "portada": {
+      "type": "jm-curso-hero",
+      "settings": {
+        "badge": "Taller online · Cupos limitados",
+        "heading": "En noviembre se siente diciembre",
+        "text": "<p>Un taller online para hombres y mujeres que desean vivir las fiestas sin carga emocional, sin fingir y sin repetir viejos patrones.</p>",
+        "button_label": "Reserva tu cupo",
+        "button_url": "#inscripcion",
+        "link_label": "Ver fecha",
+        "link_url": "#fechas",
+        "author": "Johanna Martínez",
+        "author_role": "Psicóloga clínica"
+      }
+    },
+    "que_es": {
+      "type": "jm-curso-texto",
+      "settings": {
+        "eyebrow": "¿De qué se trata?",
+        "heading": "Prepárate para diciembre",
+        "text": "<p>Si eres colombian@, sabes que desde noviembre ya se siente diciembre: las luces, la música, las reuniones. Pero pocas veces nos detenemos a mirar lo que realmente se mueve detrás de esa época: duelos que se reactivan, límites que se diluyen y el cansancio de sostener a todos menos a ti.</p><p>Este taller no se trata de celebrar, sino de prepararte emocional y corporalmente para diciembre, para que este año no lo vivas desde el dolor o la obligación, sino desde la presencia, la conciencia y la calma.</p>",
+        "quote": "",
+        "align": "left",
+        "anchor": "programa"
+      }
+    },
+    "modulos": {
+      "type": "jm-curso-modulos",
+      "settings": {
+        "eyebrow": "Durante este espacio",
+        "heading": "Lo que trabajaremos",
+        "anchor": "modulos"
+      },
+      "blocks": {
+        "modulo_1": {
+          "type": "modulo",
+          "settings": {
+            "label": "💔 Tema 1",
+            "title": "Los duelos y las ausencias que se sienten más en diciembre",
+            "text": "<p>Cómo el cuerpo recuerda a quienes ya no están y cómo transformar ese dolor para no seguir cargándolo.</p>",
+            "points": "",
+            "open": true
+          }
+        },
+        "modulo_2": {
+          "type": "modulo",
+          "settings": {
+            "label": "🚧 Tema 2",
+            "title": "Los límites desdibujados",
+            "text": "<p>Reconocer las señales internas que te indican cuándo decir no y cómo sostener tus límites sin culpa.</p>",
+            "points": "",
+            "open": false
+          }
+        },
+        "modulo_3": {
+          "type": "modulo",
+          "settings": {
+            "label": "🔥 Tema 3",
+            "title": "La complacencia y el cansancio",
+            "text": "<p>Entender la raíz corporal del impulso de agradar y recuperar tu autenticidad.</p>",
+            "points": "",
+            "open": false
+          }
+        },
+        "modulo_4": {
+          "type": "modulo",
+          "settings": {
+            "label": "🌅 Tema 4",
+            "title": "Acuerdos conmigo mism@",
+            "text": "<p>Un cierre integrador donde harás compromisos reales contigo para no repetir los mismos patrones y vivir con más coherencia.</p>",
+            "points": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "modulo_1",
+        "modulo_2",
+        "modulo_3",
+        "modulo_4"
+      ]
+    },
+    "resultado": {
+      "type": "jm-curso-texto",
+      "settings": {
+        "eyebrow": "Una invitación",
+        "heading": "",
+        "text": "<p>Este encuentro es una invitación a detenerte antes de diciembre, escuchar tu cuerpo y prepararte para cerrar el año con conciencia y calma.</p>",
+        "quote": "",
+        "align": "center",
+        "anchor": ""
+      }
+    },
+    "fechas": {
+      "type": "jm-curso-fechas",
+      "settings": {
+        "eyebrow": "Fecha y modalidad",
+        "heading": "Sábado 22 de noviembre",
+        "anchor": "fechas"
+      },
+      "blocks": {
+        "dato_1": {
+          "type": "dato",
+          "settings": {
+            "icon": "📅",
+            "title": "Sábado 22 de noviembre",
+            "text": "Un encuentro en vivo"
+          }
+        },
+        "dato_2": {
+          "type": "dato",
+          "settings": {
+            "icon": "🕗",
+            "title": "8:00 a.m. – 12:00 m.",
+            "text": "Hora Colombia"
+          }
+        },
+        "dato_3": {
+          "type": "dato",
+          "settings": {
+            "icon": "💻",
+            "title": "Online",
+            "text": "Vía Zoom"
+          }
+        },
+        "dato_4": {
+          "type": "dato",
+          "settings": {
+            "icon": "🎥",
+            "title": "Grabación",
+            "text": "Disponible por un mes si no puedes asistir en vivo"
+          }
+        }
+      },
+      "block_order": [
+        "dato_1",
+        "dato_2",
+        "dato_3",
+        "dato_4"
+      ]
+    },
+    "precios": {
+      "type": "jm-curso-precios",
+      "settings": {
+        "badge": "Cupos limitados",
+        "heading": "Reserva tu cupo",
+        "text": "<p>La inscripción estará abierta hasta agotar disponibilidad.</p>",
+        "button_type": "carrito",
+        "button_label": "Reservar mi cupo",
+        "button_url": "",
+        "note": "",
+        "anchor": "inscripcion"
+      },
+      "blocks": {
+        "precio_1": {
+          "type": "precio",
+          "settings": {
+            "title": "Valor",
+            "price": "$120.000 COP",
+            "text": "Taller completo + grabación por un mes.",
+            "highlight": true
+          }
+        },
+        "precio_2": {
+          "type": "precio",
+          "settings": {
+            "title": "Mi Lugar Seguro",
+            "price": "20% dto.",
+            "text": "Descuento para integrantes de Mi Lugar Seguro.",
+            "highlight": false
+          }
+        }
+      },
+      "block_order": [
+        "precio_1",
+        "precio_2"
+      ]
+    }
+  },
+  "order": [
+    "portada",
+    "que_es",
+    "modulos",
+    "resultado",
+    "fechas",
+    "precios"
+  ]
+}

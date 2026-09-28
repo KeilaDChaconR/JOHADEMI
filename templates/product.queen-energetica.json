@@ -1,0 +1,147 @@
+{
+  "sections": {
+    "portada": {
+      "type": "jm-curso-hero",
+      "settings": {
+        "badge": "Curso grabado · Solo para mujeres",
+        "heading": "Queen Energética",
+        "text": "<p>Pasa de la dependencia emocional a gestionar tu emocionalidad sin depender de otrx para ser feliz, y recupera tu poder interno.</p>",
+        "button_label": "Quiero inscribirme",
+        "button_url": "#inscripcion",
+        "link_label": "Ver contenido",
+        "link_url": "#modulos",
+        "author": "Johanna Martínez",
+        "author_role": "Psicóloga clínica"
+      }
+    },
+    "que_es": {
+      "type": "jm-curso-texto",
+      "settings": {
+        "eyebrow": "Introducción",
+        "heading": "Queen Energética",
+        "text": "<p>Hace muchos años atrás moría de amor cada tanto, iba por la vida buscando una historia de amor que le diera luz a mi vida, alegría, dinero y un montón de cosas materiales y emocionales que no tenía.</p><p>No sé en qué parte de mi cerebro configuré que el amor de pareja era mi solución.</p><p>Siendo yo y a través de múltiples procesos de sanación, tres Doritos después obviamente tomé conciencia de que no era por allí, ni lo será nunca para nadie, al contrario puede ser una vivencia muy dolorosa.</p><p>Lo que creo ahora firmemente es que el amor y las relaciones de pareja pueden ser una experiencia extraordinaria en la medida que te habitas, te conoces, te reconoces y te sientes completa.</p><p>Maestría de Queen viene a compartir todas estas vivencias y herramientas que he utilizado a lo largo de mi proceso espiritual, donde pasé de ser una mujer dependiente emocional a una mujer que sabe gestionar su emocionalidad sin depender 100% de un otrx para ser feliz.</p><p>En este espacio accedes a un trabajo profundo con tu sombra (shadow work). Este reajuste energético te permite recuperar tu poder interno y nutrir otras partes como tu área económica y empresarial, porque todo está ligado: si no crees en ti y en tus dones es difícil conectar afuera, porque todo el tiempo proyectarás tu sombra en tus deseos y objetivos.</p><p>Gasté horas y horas de mi vida creando estrategias de conquista, analizando la conducta del otro o más bien adivinando por qué llamaba o por qué no, pensando en cómo caerle mejor a mi mamá, hermanos, amigxs; horas y horas que hubiese podido invertir en manifestar viajes, dinero y salud.</p>",
+        "quote": "",
+        "align": "left",
+        "anchor": "programa"
+      }
+    },
+    "modulos": {
+      "type": "jm-curso-modulos",
+      "settings": {
+        "eyebrow": "Contenido del curso",
+        "heading": "3 módulos",
+        "anchor": "modulos"
+      },
+      "blocks": {
+        "modulo_1": {
+          "type": "modulo",
+          "settings": {
+            "label": "Módulo 1",
+            "title": "Qué es una Queen energética",
+            "text": "<p>Este es un programa exclusivo para mujeres porque soy mujer y he atravesado las dificultades que ustedes están atravesando. Aprendí a salir de ellas con maestría y, lo más importante, comprendí lo que querían enseñarme para no volver a repetirlas. Además descubrí muchas respuestas energéticas a estas dificultades que me han hecho construir un poder personal increíble.</p>",
+            "points": "Qué es una Queen energética.\n¿Quién crees que eres? / Quién te gustaría ser.",
+            "open": true
+          }
+        },
+        "modulo_2": {
+          "type": "modulo",
+          "settings": {
+            "label": "Módulo 2",
+            "title": "Tu avatar y tu energía femenina",
+            "text": "",
+            "points": "Crea tu avatar.\nDónde poner tu foco energético.\nEjercicios para dirigir tu energía.\nEntrenando mi energía femenina.",
+            "open": false
+          }
+        },
+        "modulo_3": {
+          "type": "modulo",
+          "settings": {
+            "label": "Módulo 3",
+            "title": "Yo no persigo, atraigo",
+            "text": "<p>Cómo hacer para no pensar en él, dirigiendo tu energía a lo que realmente deseas tener.</p>",
+            "points": "Mis emociones dependen de mí.\nYo no persigo, atraigo.\nMagnetismo para atraer la pareja que deseo.",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "modulo_1",
+        "modulo_2",
+        "modulo_3"
+      ]
+    },
+    "resultado": {
+      "type": "jm-curso-texto",
+      "settings": {
+        "eyebrow": "¿Qué vas a recibir?",
+        "heading": "",
+        "text": "<p>Te voy a dar la información que me ha hecho ser este mujerón: herramientas energéticas y psicológicas para el manejo de tu vida y tus relaciones.</p><p>¿Para qué te va a servir? Para vivir en la adultez, no en la niña que anda buscando afecto y apoyo económico en todas sus relaciones, viviendo desde la carencia y encontrando justamente eso que no quiere.</p>",
+        "quote": "Todo absolutamente en el universo lo estás creando tú, solo que lo olvidaste.",
+        "align": "center",
+        "anchor": ""
+      }
+    },
+    "fechas": {
+      "type": "jm-curso-fechas",
+      "settings": {
+        "eyebrow": "Cómo funciona",
+        "heading": "Modalidad",
+        "anchor": "fechas"
+      },
+      "blocks": {
+        "dato_1": {
+          "type": "dato",
+          "settings": {
+            "icon": "🎥",
+            "title": "Curso grabado",
+            "text": "Míralo a tu ritmo"
+          }
+        },
+        "dato_2": {
+          "type": "dato",
+          "settings": {
+            "icon": "⏳",
+            "title": "3 meses",
+            "text": "De acceso al contenido"
+          }
+        },
+        "dato_3": {
+          "type": "dato",
+          "settings": {
+            "icon": "💌",
+            "title": "Acceso",
+            "text": "Te contactamos después del pago"
+          }
+        }
+      },
+      "block_order": [
+        "dato_1",
+        "dato_2",
+        "dato_3"
+      ]
+    },
+    "precios": {
+      "type": "jm-curso-precios",
+      "settings": {
+        "badge": "",
+        "heading": "Inscríbete a Queen Energética",
+        "text": "<p>Después de realizar el pago te contactaremos para darte el acceso.</p>",
+        "button_type": "carrito",
+        "button_label": "Comprar curso",
+        "button_url": "",
+        "note": "Recuerda que no se hacen devoluciones de dinero.",
+        "anchor": "inscripcion"
+      },
+      "blocks": {},
+      "block_order": []
+    }
+  },
+  "order": [
+    "portada",
+    "que_es",
+    "modulos",
+    "resultado",
+    "fechas",
+    "precios"
+  ]
+}
