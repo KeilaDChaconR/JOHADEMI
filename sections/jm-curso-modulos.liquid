@@ -14,7 +14,7 @@
           <summary class="jm-modulo__cabeza">
             <span>
               <span class="jm-curso__etiqueta jm-modulo__etiqueta">{{ block.settings.label | default: 'Módulo' | escape }}</span>
-              <span class="jm-modulo__titulo">{{ block.settings.title | escape }}</span>
+              {%- if block.settings.title != blank -%}<span class="jm-modulo__titulo">{{ block.settings.title | escape }}</span>{%- endif -%}
             </span>
             <span class="jm-modulo__mas" aria-hidden="true"></span>
           </summary>
@@ -29,6 +29,9 @@
                   {%- if punto != blank -%}<li>{{ punto | escape }}</li>{%- endif -%}
                 {%- endfor -%}
               </ul>
+            {%- endif -%}
+            {%- if block.settings.closing != blank -%}
+              <p class="jm-modulo__cierre">{{ block.settings.closing | escape }}</p>
             {%- endif -%}
           </div>
         </details>
@@ -81,6 +84,7 @@
   .jm-modulo__texto p { margin: 0; }
   .jm-modulo__puntos { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; font-size: 15px; line-height: 1.55; }
   .jm-modulo__puntos li { display: flex; gap: 10px; }
+  .jm-modulo__cierre { margin: 4px 0 0; color: var(--jm-lima); font-style: italic; font-weight: 600; font-size: 16px; line-height: 1.5; }
   .jm-modulo__puntos li::before { content: '✻'; flex-shrink: 0; color: var(--jm-lima); }
 {% endstylesheet %}
 
@@ -99,9 +103,10 @@
       "name": "Módulo",
       "settings": [
         { "type": "text", "id": "label", "label": "Etiqueta", "default": "Módulo 1" },
-        { "type": "text", "id": "title", "label": "Título", "default": "Nombre del módulo" },
+        { "type": "text", "id": "title", "label": "Título (opcional)", "default": "Nombre del módulo" },
         { "type": "richtext", "id": "text", "label": "Descripción" },
         { "type": "textarea", "id": "points", "label": "Puntos", "info": "Uno por línea" },
+        { "type": "textarea", "id": "closing", "label": "Frase final (opcional)" },
         { "type": "checkbox", "id": "open", "label": "Abierto al cargar", "default": false }
       ]
     }

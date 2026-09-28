@@ -5,11 +5,11 @@
       "settings": {
         "badge": "Taller grabado",
         "heading": "Sanando mi herida de abandono",
-        "text": "<p>Un proceso profundo para comprender el origen de la herida de abandono, reconocer cómo se expresa en tu vida y transformarla.</p>",
+        "text": "<p>Un proceso profundo para comprender el origen de la herida de abandono y cómo esta se formó en tu inconsciente.</p>",
         "button_label": "Quiero inscribirme",
         "button_url": "#inscripcion",
         "link_label": "Qué aprenderás",
-        "link_url": "#modulos",
+        "link_url": "#aprenderas",
         "author": "Johanna Martínez",
         "author_role": "Psicóloga clínica"
       }
@@ -18,62 +18,28 @@
       "type": "jm-curso-texto",
       "settings": {
         "eyebrow": "¿Qué es?",
-        "heading": "Sanando mi herida de abandono",
+        "heading": "",
         "text": "<p>En este taller, te guiaré a través de un proceso profundo para comprender el origen de la herida de abandono y cómo esta se formó en tu inconsciente. Identificarás las conductas que la expresan y explorarás los eventos que pudieron desencadenarla.</p><p>Aprenderás a reconocer las consecuencias de este trauma en los diferentes niveles de tu vida (emocional, mental, físico y relacional) y descubrirás técnicas efectivas para superarlo y transformarlo.</p>",
         "quote": "",
         "align": "left",
         "anchor": "programa"
       }
     },
-    "modulos": {
-      "type": "jm-curso-modulos",
+    "aprenderas": {
+      "type": "jm-curso-texto",
       "settings": {
         "eyebrow": "Contenido del taller",
         "heading": "¿Qué aprenderás en este taller?",
-        "anchor": "modulos"
-      },
-      "blocks": {
-        "modulo_1": {
-          "type": "modulo",
-          "settings": {
-            "label": "01",
-            "title": "Herramientas prácticas",
-            "text": "<p>Basadas en psicología transpersonal, psicología del trauma y enfoques transgeneracionales para abordar y sanar esta herida desde la raíz.</p>",
-            "points": "",
-            "open": true
-          }
-        },
-        "modulo_2": {
-          "type": "modulo",
-          "settings": {
-            "label": "02",
-            "title": "Casos clínicos ilustrativos",
-            "text": "<p>Te ayudarán a entender tu experiencia de manera más clara y conectarte con tu proceso personal.</p>",
-            "points": "",
-            "open": false
-          }
-        },
-        "modulo_3": {
-          "type": "modulo",
-          "settings": {
-            "label": "03",
-            "title": "Reprogramar creencias inconscientes",
-            "text": "<p>Estrategias para reprogramar creencias inconscientes y romper patrones que te limitan en tus relaciones y en tu vida diaria.</p>",
-            "points": "",
-            "open": false
-          }
-        }
-      },
-      "block_order": [
-        "modulo_1",
-        "modulo_2",
-        "modulo_3"
-      ]
+        "align": "left",
+        "quote": "",
+        "anchor": "aprenderas",
+        "text": "<ul><li>Herramientas prácticas basadas en psicología transpersonal, psicología del trauma y enfoques transgeneracionales para abordar y sanar esta herida desde la raíz.</li><li>Casos clínicos ilustrativos que te ayudarán a entender tu experiencia de manera más clara y conectarte con tu proceso personal.</li><li>Estrategias para reprogramar creencias inconscientes y romper patrones que te limitan en tus relaciones y en tu vida diaria.</li></ul>"
+      }
     },
     "fechas": {
       "type": "jm-curso-fechas",
       "settings": {
-        "eyebrow": "Incluye",
+        "eyebrow": "",
         "heading": "Beneficios adicionales",
         "anchor": "fechas"
       },
@@ -82,8 +48,8 @@
           "type": "dato",
           "settings": {
             "icon": "🎥",
-            "title": "Grabación por 3 meses",
-            "text": "Repasa el contenido tantas veces como necesites"
+            "title": "Grabación del taller disponible por tres meses",
+            "text": "Podrás repasar el contenido tantas veces como necesites para integrar lo aprendido."
           }
         },
         "dato_2": {
@@ -91,15 +57,15 @@
           "settings": {
             "icon": "📓",
             "title": "Workbook exclusivo",
-            "text": "Ejercicios y reflexiones para tu proceso de sanación"
+            "text": "Una guía práctica con ejercicios y reflexiones para reforzar tu proceso de sanación."
           }
         },
         "dato_3": {
           "type": "dato",
           "settings": {
             "icon": "💬",
-            "title": "Grupo de WhatsApp",
-            "text": "Un mes de acompañamiento, dudas y apoyo"
+            "title": "Acceso a un grupo de WhatsApp por un mes",
+            "text": "Un espacio de acompañamiento donde resolverás dudas, compartirás avances y recibirás apoyo continuo en tu proceso."
           }
         }
       },
@@ -128,7 +94,7 @@
   "order": [
     "portada",
     "que_es",
-    "modulos",
+    "aprenderas",
     "fechas",
     "precios"
   ]

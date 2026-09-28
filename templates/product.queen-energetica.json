@@ -28,8 +28,8 @@
     "modulos": {
       "type": "jm-curso-modulos",
       "settings": {
-        "eyebrow": "Contenido del curso",
-        "heading": "3 módulos",
+        "eyebrow": "Contenido",
+        "heading": "Queen Energética",
         "anchor": "modulos"
       },
       "blocks": {
@@ -47,18 +47,19 @@
           "type": "modulo",
           "settings": {
             "label": "Módulo 2",
-            "title": "Tu avatar y tu energía femenina",
+            "title": "",
             "text": "",
             "points": "Crea tu avatar.\nDónde poner tu foco energético.\nEjercicios para dirigir tu energía.\nEntrenando mi energía femenina.",
-            "open": false
+            "open": false,
+            "closing": "Todo absolutamente en el universo lo estás creando tú, solo que lo olvidaste."
           }
         },
         "modulo_3": {
           "type": "modulo",
           "settings": {
             "label": "Módulo 3",
-            "title": "Yo no persigo, atraigo",
-            "text": "<p>Cómo hacer para no pensar en él, dirigiendo tu energía a lo que realmente deseas tener.</p>",
+            "title": "Cómo hacer para no pensar en él, dirigiendo tu energía a lo que realmente deseas tener",
+            "text": "",
             "points": "Mis emociones dependen de mí.\nYo no persigo, atraigo.\nMagnetismo para atraer la pareja que deseo.",
             "open": false
           }
@@ -76,7 +77,7 @@
         "eyebrow": "¿Qué vas a recibir?",
         "heading": "",
         "text": "<p>Te voy a dar la información que me ha hecho ser este mujerón: herramientas energéticas y psicológicas para el manejo de tu vida y tus relaciones.</p><p>¿Para qué te va a servir? Para vivir en la adultez, no en la niña que anda buscando afecto y apoyo económico en todas sus relaciones, viviendo desde la carencia y encontrando justamente eso que no quiere.</p>",
-        "quote": "Todo absolutamente en el universo lo estás creando tú, solo que lo olvidaste.",
+        "quote": "",
         "align": "center",
         "anchor": ""
       }
